@@ -57,3 +57,14 @@ body {
   100% { left: 100%; }
 }
 
+/* Andere CSS-Regeln hier */
+
+.neon-button:hover::before {
+  animation: neon-glow-hover 1s linear infinite;
+}
+
+@keyframes neon-glow-hover {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
