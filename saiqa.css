@@ -15,7 +15,7 @@ body {
 .lightning {
   fill: #ffffff;
   opacity: 0;
-  animation: lightningAnimation 2s infinite;
+  animation: lightningAnimation 4s infinite;
 }
 
 @keyframes lightningAnimation {
