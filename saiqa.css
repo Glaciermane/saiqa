@@ -28,6 +28,7 @@ body {
 .neon-button {
   background-color: #555555;
   color: #ffffff;
+  font-family: monospace;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
