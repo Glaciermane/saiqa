@@ -68,3 +68,12 @@ body {
   50% { left: 100%; }
   100% { left: 100%; }
 }
+.neon-button:active::before {
+  animation: neon-glow-click 0.3s linear infinite;
+}
+
+@keyframes neon-glow-click {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
