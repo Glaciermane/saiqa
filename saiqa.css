@@ -1,60 +1,35 @@
 body {
   background-color: #000e14;
-  overflow: hidden;
-}
-
-#lightning-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.lightning {
-  fill: #ffffff;
-  opacity: 0;
-  animation: lightningAnimation 1.5s infinite;
-}
-
-@keyframes lightningAnimation {
-  0% {
-    opacity: 0;
-    background-color: transparent;
-  }
-  15%, 20% {
-    opacity: 1;
-    background-color: #ffffff;
-  }
-  16%, 19% {
-    opacity: 0;
-    background-color: transparent;
-  }
-  100% {
-    opacity: 0;
-    background-color: transparent;
-  }
 }
 
 #terminal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #555555;
   color: #ffffff;
-  padding: 20px;
   font-family: monospace;
-  font-size: 16px;
-  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(2, 218, 242, 0.3);
+  padding: 20px;
+}
+
+#button {
+  display: block;
+  width: 100px;
+  height: 40px;
+  background-color: #00c8ff;
+  color: #ffffff;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
   box-shadow: 0 0 10px rgba(2, 218, 242, 0.3);
 }
 
-.green {
-  color: #00ff00;
-}
-
-.red {
-  color: #ff0000;
+#button:hover {
+  background-color: #00a6cc;
 }
