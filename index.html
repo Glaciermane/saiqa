@@ -4,8 +4,10 @@
   <meta charset="utf-8">
   <title>SSH Terminal</title>
   <link rel="stylesheet" href="saiqa.css">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+  <div id="particles-js"></div>
   <div id="terminal-container"></div>
   <div class="input-container">
     <input type="text" id="command-input" placeholder="Enter command...">
@@ -13,5 +15,8 @@
   </div>
 
   <script src="terminal.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particles.json');
+  </script>
 </body>
 </html>
