@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     neonFlash.style.opacity = 0.8;
     setTimeout(() => {
       neonFlash.style.opacity = 0;
-    }, 500);
+    }, 1000);
   }
 
   setInterval(flashAnimation, 4000);
