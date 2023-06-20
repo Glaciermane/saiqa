@@ -32,9 +32,11 @@ body {
 }
 .fontpacktop {
   display: grid;
+  margin: 0% 25%;
 }
 .fontpackbot {
   display: grid;
+  margin: 0% 3%;
 }
 
 .neon-button {
