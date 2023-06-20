@@ -1,0 +1,81 @@
+body {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#terminal-container {
+  width: 600px;
+  height: 400px;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.input-container input[type="text"] {
+  flex: 1;
+  padding: 5px;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  border-bottom: 1px solid #00ffff;
+  outline: none;
+}
+
+.input-container button {
+  padding: 5px 10px;
+  background-color: #00ffff;
+  color: #000000;
+  border: none;
+  border-radius: 3px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Neon-Akzent */
+.button-neon {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-neon:before,
+.button-neon:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, #00ffff, #009dff, #00ffff);
+  transform: skewX(-30deg);
+}
+
+.button-neon:after {
+  left: auto;
+  right: -50%;
+  transform: skewX(30deg);
+}
+
+.button-neon:hover:before,
+.button-neon:hover:after {
+  left: 50%;
+}
+
+.button-neon:hover {
+  color: #ffffff;
+}
+
