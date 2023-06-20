@@ -1,4 +1,8 @@
+body {
+  background-color: #000e14;
 
+  overflow: hidden;
+}
 
 .triangle {
   width: 0;
