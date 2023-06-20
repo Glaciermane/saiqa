@@ -13,7 +13,16 @@
       <span class="green">Welcome to the SSH Terminal!</span>
       </code>
     </pre>
-    <button class="neon-button">Launch</button>
+    <button id="launch-button" class="neon-button">Launch</button>
   </div>
+
+  <script>
+    document.getElementById("launch-button").addEventListener("click", function() {
+      document.getElementById("terminal").classList.add("exit-animation");
+      setTimeout(function() {
+        window.location.href = "terminal.html";
+      }, 1000); // Hier kannst du die Dauer der Animation in Millisekunden anpassen
+    });
+  </script>
 </body>
 </html>
