@@ -1,6 +1,6 @@
 body {
   background-color: #000e14;
-  display: flex;
+
   overflow: hidden;
 }
 
@@ -11,6 +11,7 @@ body {
   transform: translate(-50%, -50%);
   background-color: #282b2b;
   color: #ffffff;
+  margin: 0 auto;
   padding: 20px;
   font-family: monospace;
   font-size: 16px;
@@ -31,6 +32,7 @@ body {
   color: #ffffff;
   font-family: monospace;
   border: none;
+  margin: 0 auto;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 20px;
