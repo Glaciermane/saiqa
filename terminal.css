@@ -14,7 +14,7 @@ body {
 }
 
 .triangle {
-  fill: #000000;
+  fill: #00d9c3;
   animation: moveTriangle 4s linear infinite;
 }
 
