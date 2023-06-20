@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     lightning.classList.add('lightning');
 
     // Lade die externe SVG-Datei
-    fetch('blitz.svg')
+    fetch('crack.svg')
       .then(response => response.text())
       .then(svgData => {
         lightning.innerHTML = svgData;
