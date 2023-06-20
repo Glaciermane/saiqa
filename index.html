@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>test Terminal</title>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-  <link rel="stylesheet" href="saiqa.css">
+  <title>SAIQA Terminal</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  
-  <div id="particles-js"></div>
-  <div id="terminal-container"></div>
-  <div class="input-container">
-    <input type="text" id="command-input" placeholder="Enter command...">
-    <button class="button-neon" onclick="sendCommand()">exec</button>
+  <div id="neonFlash"></div>
+  <div id="terminal">
+    <!-- Hier kannst du deinen eigenen Inhalt für den SSH-Terminal platzieren -->
+    <pre>
+      <code>
+      <span class="green">$</span> <span class="red">ssh</span> user@host
+      <span class="green">Welcome to the SSH Terminal!</span>
+      </code>
+    </pre>
   </div>
-
-  <script src="terminal.js"></script>
-  <script>
-    particlesJS.load('particles-js', 'particles.json', function() {
-      console.log('Particles.js loaded');
-    });
-  </script>
 </body>
 </html>
