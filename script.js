@@ -5,13 +5,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
   function createLightning() {
     const lightning = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     lightning.classList.add('lightning');
-    lightning.setAttribute('viewBox', '0 0 100 100');
 
-    const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-    polygon.setAttribute('points', '10,0 90,0 50,100');
-
-    lightning.appendChild(polygon);
-    lightningContainer.appendChild(lightning);
+    // Lade die externe SVG-Datei
+    fetch('blitz.svg')
+      .then(response => response.text())
+      .then(svgData => {
+        lightning.innerHTML = svgData;
+        lightningContainer.appendChild(lightning);
+      });
   }
 
   function generateLightnings() {
