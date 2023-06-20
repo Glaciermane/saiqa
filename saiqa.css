@@ -3,9 +3,7 @@ body {
   overflow: hidden;
 }
 
-element.style {
-    box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.3);
-}
+
 #terminal {
   position: absolute;
   top: 50%;
