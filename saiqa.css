@@ -1,11 +1,16 @@
 body {
-  background-color: #000000;
   margin: 0;
   padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 #terminal-container {
@@ -18,6 +23,8 @@ body {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  margin: auto;
+  margin-top: 50px;
 }
 
 .input-container {
@@ -35,7 +42,7 @@ body {
   border: none;
   border-bottom: 1px solid #00ffff;
   outline: none;
-  text-align: center; /* Zentriert den Text in der Eingabeleiste */
+  text-align: center;
 }
 
 .input-container button {
@@ -44,7 +51,7 @@ body {
   color: #000000;
   border: none;
   border-radius: 3px;
-  margin-top: 10px; /* Abstand zwischen Eingabeleiste und Button */
+  margin-top: 10px;
   cursor: pointer;
 }
 
