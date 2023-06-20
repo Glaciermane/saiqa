@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
   const lightningContainer = document.getElementById('lightning-container');
-  const numParticles = 100;
+  const numParticles = 300;
 
   function createLightning() {
     const lightning = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
