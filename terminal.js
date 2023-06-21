@@ -20,19 +20,31 @@ function generateTriangles() {
   }
 }
 
+function animateTriangle(triangle, isVisible) {
+  if (isVisible) {
+    triangle.style.opacity = 1;
+    triangle.style.pointerEvents = "auto";
+    triangle.animate(
+      { opacity: [0, 1] },
+      { duration: 2000, easing: "ease-in-out" }
+    );
+  } else {
+    triangle.animate(
+      { opacity: [1, 0] },
+      { duration: 2000, easing: "ease-in-out" }
+    ).onfinish = function() {
+      triangle.style.opacity = 0;
+      triangle.style.pointerEvents = "none";
+    };
+  }
+}
+
 function updateVisibility() {
   var triangles = document.querySelectorAll(".triangle");
   for (var i = 0; i < triangles.length; i++) {
     var triangle = triangles[i];
     var isVisible = Math.random() < 0.5;
-
-    if (isVisible) {
-      triangle.style.opacity = 1;
-      triangle.style.pointerEvents = "auto";
-    } else {
-      triangle.style.opacity = 0;
-      triangle.style.pointerEvents = "none";
-    }
+    animateTriangle(triangle, isVisible);
 
     var x1 = Math.random() * window.innerWidth;
     var y1 = Math.random() * window.innerHeight;
