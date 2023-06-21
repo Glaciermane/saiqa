@@ -42,6 +42,6 @@ function updateVisibility() {
 
 document.addEventListener("DOMContentLoaded", function() {
   generateTriangles(); // Dreiecke initial generieren
-  setInterval(updateVisibility, 500); // Einblendung und Position aktualisieren (alle 0,5 Sekunden)
-  setInterval(generateTriangles, 5000); // Dreiecke regelmäßig neu generieren (alle 5 Sekunden)
+  setInterval(updateVisibility, 2000); // Einblendung und Position aktualisieren (alle 2 Sekunden)
+  setInterval(generateTriangles, 10000); // Dreiecke regelmäßig neu generieren (alle 10 Sekunden)
 });
