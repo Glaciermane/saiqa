@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var svg = document.querySelector("svg");
   var width = window.innerWidth;
   var height = window.innerHeight;
-  var numberOfTriangles = 100; // Anzahl der Dreiecke, die generiert werden sollen
+  var numberOfTriangles = 300; // Anzahl der Dreiecke, die generiert werden sollen
 
   for (var i = 0; i < numberOfTriangles; i++) {
     var triangle = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
