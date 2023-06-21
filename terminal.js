@@ -2,18 +2,31 @@ document.addEventListener("DOMContentLoaded", function() {
   var svg = document.querySelector("svg");
   var width = window.innerWidth;
   var height = window.innerHeight;
-  var numberOfTriangles = 200; // Anzahl der Dreiecke, die generiert werden sollen
+  var numberOfTriangles = 500; // Anzahl der Dreiecke, die generiert werden sollen
 
   for (var i = 0; i < numberOfTriangles; i++) {
     var triangle = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-    var x1 = Math.random() * (width - 50) + 25; // x-Koordinate in der Mitte des Bildschirms
-    var y1 = Math.random() * (height - 50) + 25; // y-Koordinate in der Mitte des Bildschirms
-    var x2 = x1 + Math.random() * 20 - 10;
-    var y2 = y1 + Math.random() * 20 - 10;
-    var x3 = x1 + Math.random() * 20 - 10;
-    var y3 = y1 + Math.random() * 20 - 10;
+    var x1 = Math.random() * width;
+    var y1 = Math.random() * height;
+    var x2 = x1 + Math.random() * 2 - 1;
+    var y2 = y1 + Math.random() * 2 - 1;
+    var x3 = x1 + Math.random() * 2 - 1;
+    var y3 = y1 + Math.random() * 2 - 1;
     triangle.setAttribute("points", x1 + "," + y1 + " " + x2 + "," + y2 + " " + x3 + "," + y3);
     triangle.classList.add("triangle");
     svg.appendChild(triangle);
   }
+
+  setInterval(function() {
+    var triangles = document.querySelectorAll(".triangle");
+    for (var i = 0; i < triangles.length; i++) {
+      var triangle = triangles[i];
+      var isVisible = Math.random() < 0.5; // Zufällige Entscheidung, ob das Dreieck ein- oder ausgeblendet wird
+      if (isVisible) {
+        triangle.style.opacity = 1;
+      } else {
+        triangle.style.opacity = 0;
+      }
+    }
+  }, 500); // Intervallzeit in Millisekunden (hier: 0,5 Sekunden)
 });
