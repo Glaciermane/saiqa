@@ -1,13 +1,13 @@
 function displayOutput(output) {
   const outputElement = document.getElementById('output');
-  const timestamp = getTimestamp();
+  const isScrolledToBottom = outputElement.scrollHeight - outputElement.clientHeight <= outputElement.scrollTop + 1; // Überprüfen, ob die Scrollbar am Ende ist
 
   const outputItem = document.createElement('div');
   outputItem.className = 'output-item';
 
   const timestampSpan = document.createElement('span');
   timestampSpan.className = 'timestamp';
-  timestampSpan.textContent = timestamp;
+  timestampSpan.textContent = getTimestamp();
   outputItem.appendChild(timestampSpan);
 
   let currentIndex = 0;
@@ -16,6 +16,10 @@ function displayOutput(output) {
   const typingInterval = setInterval(() => {
     if (currentIndex === output.length) {
       clearInterval(typingInterval);
+
+      if (isScrolledToBottom) {
+        outputElement.scrollTop = outputElement.scrollHeight; // Scrollbar zum Ende des Outputs setzen
+      }
     } else if (output[currentIndex] === '<') {
       const endIndex = output.indexOf('>', currentIndex) + 1;
       const tag = output.substring(currentIndex, endIndex);
@@ -41,6 +45,10 @@ function displayOutput(output) {
   }, typingSpeed);
 
   outputElement.appendChild(outputItem);
+
+  if (isScrolledToBottom) {
+    outputElement.scrollTop = outputElement.scrollHeight; // Scrollbar zum Ende des Outputs setzen
+  }
 }
 
 
@@ -64,8 +72,10 @@ function processCommand(command) {
     output = 'Aktuelle Uhrzeit: ' + now.toLocaleTimeString();
   } else if (command === 'info') {
     output = 'Dies ist ein Beispiel-Terminal.';
+  } else if (command === 'saiqa') {
+        output = ' ' + ' ' + '│' + ' ' + ' ' + 'type in superuser password...';
   } else {
-    output = ' ' + '│' + ' ' + ' ' + 'unkown cmd:' + '  ' + command;
+        output = ' ' + ' ' + '│ <span class="yellow">unknown cmd:</span> ' + command;
   }
 
   displayOutput(output);
