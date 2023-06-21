@@ -12,23 +12,19 @@ body {
   overflow: hidden;
 }
 
-
-polygon.triangle {
+.triangle {
   fill: #00ed1c;
   opacity: 0;
-  transition: opacity 2.5s ease-in-out;
+  transition: opacity 3s ease-in-out;
   pointer-events: none;
-
 }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
