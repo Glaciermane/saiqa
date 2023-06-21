@@ -12,14 +12,13 @@ body {
   overflow: hidden;
 }
 
-.triangle {
+
+polygon.triangle {
   fill: #00ed1c;
   opacity: 0;
+  transition: opacity 1s ease-in-out;
   pointer-events: none;
-  animation-name: fadeInOut;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
+
 }
 
 @keyframes fadeInOut {
