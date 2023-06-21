@@ -1,8 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+function generateTriangles() {
   var svg = document.querySelector("svg");
   var width = window.innerWidth;
   var height = window.innerHeight;
   var numberOfTriangles = 500; // Anzahl der Dreiecke, die generiert werden sollen
+
+  svg.innerHTML = ""; // Vorherige Dreiecke löschen
 
   for (var i = 0; i < numberOfTriangles; i++) {
     var triangle = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
@@ -16,17 +18,23 @@ document.addEventListener("DOMContentLoaded", function() {
     triangle.classList.add("triangle");
     svg.appendChild(triangle);
   }
+}
 
-  setInterval(function() {
-    var triangles = document.querySelectorAll(".triangle");
-    for (var i = 0; i < triangles.length; i++) {
-      var triangle = triangles[i];
-      var isVisible = Math.random() < 0.5; // Zufällige Entscheidung, ob das Dreieck ein- oder ausgeblendet wird
-      if (isVisible) {
-        triangle.style.opacity = 1;
-      } else {
-        triangle.style.opacity = 0;
-      }
+function updateVisibility() {
+  var triangles = document.querySelectorAll(".triangle");
+  for (var i = 0; i < triangles.length; i++) {
+    var triangle = triangles[i];
+    var isVisible = Math.random() < 0.5; // Zufällige Entscheidung, ob das Dreieck ein- oder ausgeblendet wird
+    if (isVisible) {
+      triangle.style.opacity = 1;
+    } else {
+      triangle.style.opacity = 0;
     }
-  }, 500); // Intervallzeit in Millisekunden (hier: 0,5 Sekunden)
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  generateTriangles(); // Dreiecke initial generieren
+  setInterval(updateVisibility, 500); // Einblendung aktualisieren (alle 0,5 Sekunden)
+  setInterval(generateTriangles, 5000); // Dreiecke regelmäßig neu generieren (alle 5 Sekunden)
 });
