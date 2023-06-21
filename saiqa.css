@@ -21,21 +21,27 @@ body {
 }
 
 .green {
-  color: #00ff00;
-  flex: 1;
-  display: grid;
+    color: #00ff00;
+    flex: 1;
+    margin: 0 auto;
 }
 .white {
-  flex: 1;
-  color: white;
+    flex: 1;
+    margin: 0 auto;
+    margin-left: 5%;
+    margin-right: 10%;
+    color: white;
 }
 .red {
-  flex: 1;
-  color: #ff0000;
+    flex: 1;
+    margin-left: 15%;
+    margin-right: 10%;
+    color: #ff0000;
 }
 .fontpacktop {
-  display: flex;
-  margin: 0% 20%;
+    display: flex;
+    margin-right: 20%;
+    margin-left: 20%;
 }
 .fontpackbot {
   display: grid;
