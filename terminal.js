@@ -2,7 +2,7 @@ function generateTriangles() {
   var svg = document.querySelector("svg");
   var width = window.innerWidth;
   var height = window.innerHeight;
-  var numberOfTriangles = 5000;
+  var numberOfTriangles = 2000;
 
   svg.innerHTML = "";
 
