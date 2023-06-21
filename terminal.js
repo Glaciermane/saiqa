@@ -21,20 +21,19 @@ function generateTriangles() {
 }
 
 function animateTriangle(triangle) {
-  if (triangle.style.opacity === "1") {
-    triangle.style.opacity = "0";
-    triangle.style.transition = "opacity 1s ease-in-out";
-    triangle.style.pointerEvents = "none";
-  } else {
+  if (triangle.style.opacity === "0") {
     triangle.style.opacity = "1";
     triangle.style.transition = "opacity 1s ease-in-out";
     triangle.style.pointerEvents = "auto";
+  } else {
+    triangle.style.opacity = "0";
+    triangle.style.transition = "opacity 1s ease-in-out";
+    triangle.style.pointerEvents = "none";
   }
 }
 
 function animateRandomTriangles() {
   var triangles = document.querySelectorAll(".triangle");
-
   var randomIndex = Math.floor(Math.random() * triangles.length);
   var randomTriangle = triangles[randomIndex];
   animateTriangle(randomTriangle);
