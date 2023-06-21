@@ -4,7 +4,7 @@ body {
   overflow: hidden;
 }
 
-.background-animation {
+#background-animation {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@ body {
 }
 
 .triangle {
-  fill: #00d9c3;
+  fill: #000000;
   animation: moveTriangle 4s linear infinite;
 }
 
