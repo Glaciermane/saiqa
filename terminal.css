@@ -26,3 +26,12 @@ body {
     transform: translate(100%, -100%);
   }
 }
+
+@keyframes fadeTriangle {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
