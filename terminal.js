@@ -20,25 +20,27 @@ function generateTriangles() {
   }
 }
 
-function animateTriangles() {
+function animateTriangle(triangle) {
+  if (triangle.style.opacity === "1") {
+    triangle.style.opacity = "0";
+    triangle.style.transition = "opacity 1s ease-in-out";
+    triangle.style.pointerEvents = "none";
+  } else {
+    triangle.style.opacity = "1";
+    triangle.style.transition = "opacity 1s ease-in-out";
+    triangle.style.pointerEvents = "auto";
+  }
+}
+
+function animateRandomTriangles() {
   var triangles = document.querySelectorAll(".triangle");
 
-  triangles.forEach(function(triangle) {
-    if (triangle.style.opacity === "1") {
-      triangle.style.opacity = "0";
-      triangle.style.transition = "opacity 1s ease-in-out";
-      triangle.style.pointerEvents = "none";
-    } else {
-      triangle.style.opacity = "1";
-      triangle.style.transition = "opacity 1s ease-in-out";
-      triangle.style.pointerEvents = "auto";
-    }
-  });
-  
-  setTimeout(generateTriangles, 1000); // Neue Dreiecke generieren
+  var randomIndex = Math.floor(Math.random() * triangles.length);
+  var randomTriangle = triangles[randomIndex];
+  animateTriangle(randomTriangle);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   generateTriangles();
-  setInterval(animateTriangles, 2000);
+  setInterval(animateRandomTriangles, 2000);
 });
