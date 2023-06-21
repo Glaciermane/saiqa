@@ -15,23 +15,6 @@ body {
 
 .triangle {
   fill: #00ed1c;
-  animation: moveTriangle 6s linear infinite;
+  opacity: 0;
 }
 
-@keyframes moveTriangle {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(100%, -100%);
-  }
-}
-
-@keyframes fadeTriangle {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
