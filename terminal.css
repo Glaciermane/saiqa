@@ -16,5 +16,6 @@ body {
 polygon.triangle {
   fill: #00ed1c;
   opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
