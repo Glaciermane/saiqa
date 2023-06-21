@@ -1,6 +1,5 @@
 body {
   background-color: #000e14;
-
   overflow: hidden;
 }
 
@@ -13,10 +12,24 @@ body {
   overflow: hidden;
 }
 
-polygon.triangle {
+.triangle {
   fill: #00ed1c;
   opacity: 0;
   pointer-events: none;
+  animation-name: fadeInOut;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
-
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
