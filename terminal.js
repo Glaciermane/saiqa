@@ -2,7 +2,7 @@ function generateTriangles() {
   var svg = document.querySelector("svg");
   var width = window.innerWidth;
   var height = window.innerHeight;
-  var numberOfTriangles = 2000;
+  var numberOfTriangles = 500;
 
   svg.innerHTML = "";
 
@@ -20,24 +20,24 @@ function generateTriangles() {
   }
 }
 
-function animateTriangle(triangle, isVisible) {
-  var opacityKeyframes = [
-    { opacity: isVisible ? 0 : 1 },
-    { opacity: isVisible ? 1 : 0 }
-  ];
-  var options = { duration: 2000, easing: "ease-in-out" };
-
-  triangle.style.pointerEvents = isVisible ? "auto" : "none";
-  triangle.animate(opacityKeyframes, options);
-}
-
 function updateVisibility() {
   var triangles = document.querySelectorAll(".triangle");
+  
   for (var i = 0; i < triangles.length; i++) {
     var triangle = triangles[i];
-    var isVisible = Math.random() < 0.5;
-    animateTriangle(triangle, isVisible);
+    
+    if (triangle.style.opacity === "1") {
+      triangle.style.opacity = "0";
+      triangle.style.transitionDuration = "1s";
+      triangle.style.pointerEvents = "none";
+    } else {
+      triangle.style.opacity = "1";
+      triangle.style.transitionDuration = "1s";
+      triangle.style.pointerEvents = "auto";
+    }
   }
+  
+  setTimeout(generateTriangles, 500); // Neue Dreiecke generieren
 }
 
 document.addEventListener("DOMContentLoaded", function() {
