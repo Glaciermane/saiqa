@@ -13,7 +13,7 @@ body {
   overflow: hidden;
 }
 
-.triangle {
+polygon.triangle {
   fill: #00ed1c;
   opacity: 0;
 }
