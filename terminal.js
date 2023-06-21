@@ -20,27 +20,25 @@ function generateTriangles() {
   }
 }
 
-function updateVisibility() {
+function animateTriangles() {
   var triangles = document.querySelectorAll(".triangle");
-  
-  for (var i = 0; i < triangles.length; i++) {
-    var triangle = triangles[i];
-    
+
+  triangles.forEach(function(triangle) {
     if (triangle.style.opacity === "1") {
       triangle.style.opacity = "0";
-      triangle.style.transitionDuration = "1s";
+      triangle.style.transition = "opacity 1s ease-in-out";
       triangle.style.pointerEvents = "none";
     } else {
       triangle.style.opacity = "1";
-      triangle.style.transitionDuration = "1s";
+      triangle.style.transition = "opacity 1s ease-in-out";
       triangle.style.pointerEvents = "auto";
     }
-  }
+  });
   
-  setTimeout(generateTriangles, 500); // Neue Dreiecke generieren
+  setTimeout(generateTriangles, 1000); // Neue Dreiecke generieren
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   generateTriangles();
-  setInterval(updateVisibility, 2000);
+  setInterval(animateTriangles, 2000);
 });
