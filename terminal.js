@@ -27,11 +27,11 @@ function updateVisibility() {
     var isVisible = Math.random() < 0.5;
 
     if (isVisible) {
-      triangle.style.animation = "fadeIn 2s ease-in-out";
       triangle.style.opacity = 1;
+      triangle.style.pointerEvents = "auto";
     } else {
-      triangle.style.animation = "fadeOut 2s ease-in-out";
       triangle.style.opacity = 0;
+      triangle.style.pointerEvents = "none";
     }
 
     var x1 = Math.random() * window.innerWidth;
