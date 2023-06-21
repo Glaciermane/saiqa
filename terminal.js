@@ -20,6 +20,27 @@ function generateTriangles() {
   }
 }
 
+function animateTriangle(triangle, isVisible) {
+  var opacityKeyframes = [
+    { opacity: isVisible ? 0 : 1 },
+    { opacity: isVisible ? 1 : 0 }
+  ];
+  var options = { duration: 2000, easing: "ease-in-out" };
+
+  triangle.style.pointerEvents = isVisible ? "auto" : "none";
+  triangle.animate(opacityKeyframes, options);
+}
+
+function updateVisibility() {
+  var triangles = document.querySelectorAll(".triangle");
+  for (var i = 0; i < triangles.length; i++) {
+    var triangle = triangles[i];
+    var isVisible = Math.random() < 0.5;
+    animateTriangle(triangle, isVisible);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   generateTriangles();
+  setInterval(updateVisibility, 2000);
 });
