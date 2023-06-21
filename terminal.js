@@ -2,7 +2,7 @@
       var svg = document.querySelector("svg");
       var width = window.innerWidth;
       var height = window.innerHeight;
-      var numberOfTriangles = 500; // Anzahl der Dreiecke, die generiert werden sollen
+      var numberOfTriangles = 1000; // Anzahl der Dreiecke, die generiert werden sollen
 
       svg.innerHTML = ""; // Vorherige Dreiecke löschen
 
