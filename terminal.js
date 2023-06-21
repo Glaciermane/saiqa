@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
   for (var i = 0; i < numberOfTriangles; i++) {
     var triangle = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
     var x1 = Math.random() * width;
-    var y1 = Math.random() * height;
+    var y1 = Math.random() * (height + 100) + height; // Startposition außerhalb des sichtbaren Bereichs (unten)
     var x2 = x1 + Math.random() * 20 - 10;
     var y2 = y1 + Math.random() * 20 - 10;
     var x3 = x1 + Math.random() * 20 - 10;
