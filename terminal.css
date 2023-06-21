@@ -1,153 +1,154 @@
-body {
-  background-color: #000e14;
-  overflow: hidden;
-}
+function displayOutput(output) {
+  const outputElement = document.getElementById('output');
+  const isScrolledToBottom = outputElement.scrollHeight - outputElement.clientHeight <= outputElement.scrollTop + 1; // Überprüfen, ob die Scrollbar am Ende ist
 
-#background-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+  const outputItem = document.createElement('div');
+  outputItem.className = 'output-item';
 
-.triangle {
-  fill: #00ed1c;
-  opacity: 0;
-  transition: opacity 3s ease-in-out;
-  pointer-events: none;
-}
+  const timestampSpan = document.createElement('span');
+  timestampSpan.className = 'timestamp';
+  timestampSpan.textContent = getTimestamp();
+  outputItem.appendChild(timestampSpan);
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  let currentIndex = 0;
+  const typingSpeed = 60;
 
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
+  const typingInterval = setInterval(() => {
+    if (currentIndex === output.length) {
+      clearInterval(typingInterval);
 
-.sshsaiqa {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    display: grid;
-    width: 40%;
-    height: 30%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 15, 2, 0.7);
-    color: #ffffff;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: monospace;
-    font-size: 16px;
-    border-color: #00d335;
-    border-radius: 7px;
-    box-shadow: 0 0 30px rgba(0, 199, 24, 0.8);
-  }
+      if (isScrolledToBottom) {
+        outputElement.scrollTop = outputElement.scrollHeight; // Scrollbar zum Ende des Outputs setzen
+      }
+    } else if (output[currentIndex] === '<') {
+      const endIndex = output.indexOf('>', currentIndex) + 1;
+      const tag = output.substring(currentIndex, endIndex);
 
- .saiqatxt {
-     position: absolute;
-     top: 30%;
-     left: 50%;
-     display: grid;
-     overflow:auto
-     width: 20%;
-     height: 20%;
-     transform: translate(-50%, -50%);
-     color: #ffffff;
-     
-     margin: 0 auto;
-     padding: 20px;
-     font-family: monospace;
-     font-size: 20px;
+      const tagSpan = document.createElement('span');
+      tagSpan.innerHTML = tag;
 
- }
+      outputItem.appendChild(tagSpan);
+      currentIndex = endIndex;
+    } else {
+      const char = output[currentIndex];
+      const span = document.createElement('span');
+      span.textContent = char;
 
- .glow {
-  font-size: 30px;
-  color: #9affa2;
-  text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
+      if (output.substring(currentIndex, currentIndex + 9) === 'unknown cmd') {
+        span.classList.add('yellow');
+        currentIndex += 8;
+      }
 
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #01e6e6, 0 0 40px #00e61f, 0 0 50px #00e60c, 0 0 60px #00e600, 0 0 70px #00e660;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #0ae003, 0 0 40px #4dffff, 0 0 50px #4dff5c, 0 0 60px #4dff5c, 0 0 70px #4dff91, 0 0 80px #4dffb5;
+      outputItem.appendChild(span);
+      currentIndex++;
+    }
+  }, typingSpeed);
+
+  outputElement.appendChild(outputItem);
+
+  if (isScrolledToBottom) {
+    outputElement.scrollTop = outputElement.scrollHeight; // Scrollbar zum Ende des Outputs setzen
   }
 }
 
-.input-field {
-  width: 100%;
-  height: 30px;
-  padding: 0px;
-  margin-top: 1x;
-  font-family: monospace;
-  font-size: 10px;
-  color: #e7e7e7;
-  background-color: transparent;
-  border: none;
-  outline: none;
+
+
+function displayLoadingBar() {
+  const outputElement = document.getElementById('output');
+
+  const loadingBar = document.createElement('div');
+  loadingBar.className = 'loading-bar';
+
+  const barContainer = document.createElement('div');
+  barContainer.className = 'bar-container';
+
+  const bar = document.createElement('div');
+  bar.className = 'bar';
+  bar.textContent = '═';
+
+  barContainer.appendChild(bar);
+  loadingBar.appendChild(barContainer);
+  outputElement.appendChild(loadingBar);
+
+  outputElement.scrollTop = outputElement.scrollHeight; // Scrollbar zum Ende des Outputs setzen
 }
 
-.output {
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin-top: 1x;
-  font-family: monospace;
-  font-size: 13px;
-  color: #ff3131;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  overflow: auto;
-  scrollbar-width: thin; /* Hinzugefügt, um die Scroll-Leiste dünn zu machen */
-  scrollbar-color: transparent transparent; /* Hinzugefügt, um die Scroll-Leiste transparent zu machen */
+function updateLoadingBar() {
+  const loadingBar = document.querySelector('.loading-bar .bar');
+  const currentProgress = loadingBar.textContent;
+  const newProgress = currentProgress.substr(1) + currentProgress.substr(0, 1);
+  loadingBar.textContent = newProgress;
 }
 
-.output::-webkit-scrollbar {
-  width: 6px; /* Hinzugefügt, um die Breite der Scroll-Leiste festzulegen */
+function finishLoadingBar() {
+  const loadingBar = document.querySelector('.loading-bar');
+  loadingBar.remove();
 }
 
-.output::-webkit-scrollbar-track {
-  background: transparent; /* Hinzugefügt, um den Hintergrund der Scroll-Leiste transparent zu machen */
+
+
+
+
+
+function getTimestamp() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  return `[${hours}:${minutes}:${seconds}]`;
+}
+// Funktion zum Verarbeiten des eingegebenen Befehls
+function processCommand(command) {
+  let output = '';
+
+  if (command === 'hallo') {
+    output = 'Hallo! Wie kann ich dir helfen?';
+  } else if (command === 'zeit') {
+    const now = new Date();
+    output = 'Aktuelle Uhrzeit: ' + now.toLocaleTimeString();
+  } else if (command === 'info') {
+    output = 'Dies ist ein Beispiel-Terminal.';
+  } else if (command === 'saiqa') {
+        output = ' ' + ' ' + '│' + ' ' + ' ' + 'type in superuser password...';
+  } else if (command === 'bararaq-saiqa') {
+    output = ' ' + ' ' + '│' + ' ' + ' ' + 'initializing:';
+    output = ' ' + ' ' + '│' + ' ' + ' ' + 'initializing:';
+    output = ' ' + ' ' + '│' + ' ' + ' ' + 'initializing:';
+    output = ' ' + ' ' + '│' + ' ' + ' ' + 'initializing:';
+    output = ' ' + ' ' + '│' + ' ' + ' ' + 'initializing:';
+    output = ' ' + ' ' + '│' + ' ' + ' ' + 'initializing:';
+  } else if (command === 'reload') {
+    displayLoadingBar();
+  
+    const interval = setInterval(() => {
+      updateLoadingBar();
+    }, 100);
+  
+    // Simulieren einer Ladezeit von 3 Sekunden
+    setTimeout(() => {
+      clearInterval(interval);
+      finishLoadingBar();
+      displayOutput('Die Seite wurde neu geladen!');
+    }, 3000);
+  }
+   else {
+        output = ' ' + ' ' + '│ <span class="yellow">unknown cmd:</span> ' + command;
+  }
+
+  displayOutput(output);
 }
 
-.output::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.3); /* Hinzugefügt, um die Farbe des Scroll-Leisten-Thumb festzulegen */
-  border-radius: 3px; /* Hinzugefügt, um die Ecken des Scroll-Leisten-Thumb abzurunden */
-}
+document.addEventListener('DOMContentLoaded', function() {
+  var inputField = document.getElementById('input-field');
 
-.output-item {
-  margin-bottom: 8px;
-}
+  inputField.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      var command = inputField.value.trim();
+      processCommand(command);
+      inputField.value = ''; // Eingabefeld leeren
+    }
+  });
+});
 
-.timestamp {
-  color: aqua;
-}
-.yellow {
-  color: rgb(255, 230, 0);
-}
-.green {
-  color: rgb(0, 255, 0);
-}
-.pink {
-  color: rgb(255, 0, 179);
-}
-.gray {
-  color: rgb(161, 161, 161);
-}
-.white {
-  color: rgb(255, 255, 255);
-}
-.cyan {
-  color: aqua;
-}
+
+
