@@ -67,3 +67,20 @@ document.addEventListener("DOMContentLoaded", function() {
   setInterval(updatePositions, 5000); // Positionswechsel aktualisieren (alle 5 Sekunden)
   setInterval(generateTriangles, 10000); // Dreiecke regelmäßig neu generieren (alle 10 Sekunden)
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // ...
+
+  var inputField = document.getElementById("input-field");
+  inputField.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      var command = inputField.value;
+      // Hier kannst du den eingegebenen Befehl verarbeiten
+      console.log("Command entered: " + command);
+      inputField.value = ""; // Zurücksetzen des Eingabefelds
+    }
+  });
+
+  // ...
+});
