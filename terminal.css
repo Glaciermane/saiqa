@@ -99,7 +99,7 @@ body {
 
 .output {
   width: 100%;
-  height: 30px;
+  height: 100%;
   padding: 0px;
   margin-top: 1x;
   font-family: monospace;
@@ -108,7 +108,24 @@ body {
   background-color: transparent;
   border: none;
   outline: none;
+  overflow: auto;
+  scrollbar-width: thin; /* Hinzugefügt, um die Scroll-Leiste dünn zu machen */
+  scrollbar-color: transparent transparent; /* Hinzugefügt, um die Scroll-Leiste transparent zu machen */
 }
+
+.output::-webkit-scrollbar {
+  width: 6px; /* Hinzugefügt, um die Breite der Scroll-Leiste festzulegen */
+}
+
+.output::-webkit-scrollbar-track {
+  background: transparent; /* Hinzugefügt, um den Hintergrund der Scroll-Leiste transparent zu machen */
+}
+
+.output::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* Hinzugefügt, um die Farbe des Scroll-Leisten-Thumb festzulegen */
+  border-radius: 3px; /* Hinzugefügt, um die Ecken des Scroll-Leisten-Thumb abzurunden */
+}
+
 .output-item {
   margin-bottom: 8px;
 }
